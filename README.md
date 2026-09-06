@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AlgoMaster Study Tracker
 
-## Getting Started
+A clean, responsive, distraction-free personal daily-learning tracker for **Low Level Design (LLD)** and **System Design**, with the official **AlgoMaster** curriculum as the sole source of truth.
 
-First, run the development server:
+---
 
+## 🚀 Features
+
+- **Single Source of Truth**:
+  - **Low Level Design**: 19 sections, 134 verified resources (OOP, SOLID, UML, 38 design patterns, real-world problems like Parking Lot, LRU Cache, Splitwise, Uber).
+  - **System Design**: 21 sections, 160 verified resources (Fundamentals, Networking, Caching, Databases, Scaling, Distributed Systems, Microservices).
+  - Every resource links directly to its official `algomaster.io/learn/...` page. No proprietary lesson content is copied.
+- **Strict Sequential Progression**:
+  - Automatically identifies the current study day (`current_day = first incomplete day`).
+  - **Missed Day Enforcement**: If an earlier day is incomplete, it stays pending and locks subsequent days (🔒). No skipping ahead.
+  - A day completes only when all assigned resources are marked done.
+- **Dual Course Isolation**:
+  - Independent progress and daily schedules for Low Level Design and System Design.
+- **Configurable Daily Pacing**:
+  - Select 1, 2, 3 (default), or 5 resources per day in Settings while strictly preserving AlgoMaster's original ordering.
+- **Mobile-First & PWA**:
+  - Native bottom navigation bar for mobile devices.
+  - Generous touch targets (40px–48px) and responsive calendar grid.
+  - Web Push / PWA compatible daily study reminders.
+- **Dual-Layer Storage**:
+  - Real-time cloud sync with Supabase PostgreSQL + instant local storage caching for offline resilience.
+
+---
+
+## 🛠 Tech Stack
+
+- **Framework**: Next.js 16 (App Router, Turbopack)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS, Lucide Icons, next-themes (Dark/Light mode)
+- **Database & Auth**: Supabase (PostgreSQL with RLS)
+- **PWA**: Web App Manifest & Service Worker
+
+---
+
+## 📦 Getting Started
+
+### 1. Clone repository & install dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Bvs2006/selfLearn.git
+cd selfLearn
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Environment Variables
+Create a `.env.local` file:
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Run Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Build for Production
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+### 5. Automated Verification Tests
+```bash
+npx tsx tests/learning_engine.test.ts
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📜 License
+MIT License

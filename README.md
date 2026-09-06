@@ -1,5 +1,7 @@
 # AlgoMaster Study Tracker
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBvs2006%2FselfLearn&env=NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY&project-name=algomaster-study-tracker)
+
 A clean, responsive, distraction-free personal daily-learning tracker for **Low Level Design (LLD)** and **System Design**, with the official **AlgoMaster** curriculum as the sole source of truth.
 
 ---
